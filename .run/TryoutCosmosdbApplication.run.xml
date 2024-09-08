@@ -1,0 +1,9 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="TryoutCosmosdbApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <module name="tryout-cosmosdb" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="org.wintersleep.tryout.cosmosdb.tryout.cosmosdb.TryoutCosmosdbApplication" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

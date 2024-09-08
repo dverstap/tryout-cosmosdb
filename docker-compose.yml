@@ -1,0 +1,24 @@
+services:
+  # This currently crashes on a Linux kernel >= 6.7:
+  # https://github.com/Azure/azure-cosmos-db-emulator-docker/issues/84
+  # Using a VM works, but then I also need (because the certificate is only for "localhost"):
+  #   socat tcp-listen:8081,reuseaddr,fork tcp:192.168.124.117:8081
+  # But it should work on Windows, but macOS on ARM will also need a linux VM
+
+  # You also have to import the self-signed certificate into your JVM trust store.
+  #   curl -k https://localhost:8081/_explorer/emulator.pem > emulatorcert.crt
+  #   keytool -importcert -alias cacerts -keystore cacerts -file emulatorcert.crt
+  # Make sure that keytool is from the same JVM that you use to run the app in IntelliJ. Run:
+  #   which keytool
+
+  # CosmosDB UI: https://localhost:8081/_explorer/index.html
+  cosmosdb:
+    image: mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator:latest
+    ports:
+      - 8081:8081
+      - 10250-10255:10250-10255
+    volumes:
+      - cosmosdb:/tmp/cosmos/appdata
+
+volumes:
+  cosmosdb:

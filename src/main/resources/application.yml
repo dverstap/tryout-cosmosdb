@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: tryout-cosmosdb
+  cloud:
+    azure:
+      cosmos:
+        #endpoint: https://192.168.124.117:8081 # certificate not valid, so need:
+        # socat tcp-listen:8081,reuseaddr,fork tcp:192.168.124.117:8081
+        endpoint: https://localhost:8081
+        database: test-emulator
+        key: 'C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw=='
+  security:
+    user:
+      name: test
+      password: test
